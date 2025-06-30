@@ -47,6 +47,11 @@ body {
    margin-right: auto;
  }
 
+.beta {
+   font-family: cursive;
+   color: aliceblue;
+}
+
   audio::-webkit-media-controls-panel {
   background-color: #0066b965; 
   color: #000000;
