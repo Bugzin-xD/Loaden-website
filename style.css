@@ -16,6 +16,17 @@ body {
         }
 
  
+  .baixo
+ {
+    background-color: rgb(49, 49, 49);
+    color: rgb(49, 49, 49);
+    width: 100%;
+    height: 60px;
+    border-radius: 5px 5px 0px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ }
 
 .text {
     color: aliceblue;
@@ -111,17 +122,6 @@ body {
    text-decoration: none;
  }
 
-  .baixo
- {
-    background-color: rgb(49, 49, 49);
-    color: rgb(49, 49, 49);
-    width: 100%;
-    height: 60px;
-    border-radius: 5px 5px 0px 0px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
- }
  .rodape {
     font-family: cursive;
     color: aliceblue;
