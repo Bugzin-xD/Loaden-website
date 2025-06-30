@@ -3,7 +3,19 @@ body {
     background-size: cover;  
     background-position: center;
     background-attachment: fixed;
-} 
+               margin: 0; /* Remove margem padrão do body */
+            overflow: hidden; /* Evita barras de rolagem se o canvas for maior */
+            position: relative; /* Para posicionar outros elementos em cima do canvas */
+        }
+        #canvas {
+            display: block; /* Remove espaço extra abaixo do canvas */
+            position: fixed; /* Fixa o canvas no background */
+            top: 0;
+            left: 0;
+            z-index: -1; /* Coloca o canvas atrás de todo o conteúdo */
+        }
+
+ 
 
 .text {
     color: aliceblue;
