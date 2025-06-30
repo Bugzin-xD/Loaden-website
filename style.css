@@ -85,6 +85,7 @@ body {
  }
 
    .linkSobre {
+   cursor: no-drop;
    -webkit-text-fill-color: aliceblue;
    padding: 2px;
    border: 2px solid rgb(0, 0, 0);
