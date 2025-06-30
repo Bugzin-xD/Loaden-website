@@ -48,6 +48,8 @@ body {
  }
 
 .beta {
+   width: max-content;
+   margin-right: auto;
    font-family: cursive;
    color: aliceblue;
 }
