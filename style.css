@@ -50,6 +50,8 @@ body {
 .beta {
    font-family: cursive;
    color: aliceblue;
+   width: fit-content;
+   margin-right: auto;
 }
 
   audio::-webkit-media-controls-panel {
