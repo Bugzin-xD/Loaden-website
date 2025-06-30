@@ -2,7 +2,7 @@ body {
    background-color: black;
     background-size: cover;  
     background-position: center;
-    background-attachment: fixed;
+
                margin: 0; /* Remove margem padrão do body */
             overflow: hidden; /* Evita barras de rolagem se o canvas for maior */
             position: relative; /* Para posicionar outros elementos em cima do canvas */
