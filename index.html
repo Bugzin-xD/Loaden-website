@@ -1,59 +1,65 @@
 <!DOCTYPE html>
 <html lang="pt-br">
- <scipt src="background.js"></scipt>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Loaden</title>
-        <meta name="description" content="Entre e se acomode">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="style.css">
-        <link rel="icon" href="/logo.ico" type="image/x-icon">
-    </head>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Loaden</title>
+    <meta name="description" content="Entre e se acomode">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <header class="topo">
-    <div class="links">
-    <a class="linkContato" href="https://forms.gle/NDQTi6dd1mvA4VXLA" target="_blank">Contato</a>
-    <a class="linkAvaliacao" href="https://forms.gle/yuiWscAbi6yhvDKQ6" target="_blank">Avaliação</a>
-     <a class="linkSobre">Sobre (em manutenção)</a>
-    </div>
+    <link rel="stylesheet" href="style.css">
     
-    </header>
-    <link rel="stylesheet" href="style.css"> </head>
-<body>
+    <link rel="icon" href="/logo.ico" type="image/x-icon">
+    
     <style>
-    body {
-            margin: 0;
-            overflow: hidden;
-            position: relative;
+        body {
+            margin: 0; /* Remove margem padrão do body */
+            overflow: hidden; /* Evita barras de rolagem se o canvas for maior */
+            position: relative; /* Para posicionar outros elementos em cima do canvas */
         }
         #canvas {
-            display: block; 
-            position: fixed;
+            display: block; /* Remove espaço extra abaixo do canvas */
+            position: fixed; /* Fixa o canvas no background */
             top: 0;
             left: 0;
-            z-index: -1;
+            z-index: -1; /* Coloca o canvas atrás de todo o conteúdo */
         }
-        </style>
+    </style>
+</head>
+<body>
     <canvas id="canvas"></canvas>
+
+    <header class="topo">
+        <div class="links">
+            <a class="linkContato" href="https://forms.gle/NDQTi6dd1mvA4VXLA" target="_blank">Contato</a>
+            <a class="linkAvaliacao" href="https://forms.gle/yuiWscAbi6yhvDKQ6" target="_blank">Avaliação</a>
+            <a class="linkSobre">Sobre (em manutenção)</a>
+        </div>
+    </header>
+    
     <span class="BetaV">
-    <span class="versao">Versão</span>
-    <span class="beta"> BETA</span>
+        <span class="versao">Versão</span>
+        <span class="beta"> BETA</span>
     </span>
     
-    <span class="text-geral"><h1>
-        <span class="text">Dando um </span>
-        <span class="text2">load</span>
-        <span class="text3"> melhor no seu </span>
-        <p class="final">computador!</p>
-    </h1></span>
+    <span class="text-geral">
+        <h1>
+            <span class="text">Dando um </span>
+            <span class="text2">load</span>
+            <span class="text3"> melhor no seu </span>
+            <p class="final">computador!</p>
+        </h1>
+    </span>
     <span class="music" h4>Música :)</span>
     <br>
     <audio controls loop src="Sound.mp3" type="audio/mp3">Teu navegador deu ruim no aúdio :/</audio>
-    </body>
-        <footer class="baixo">
+
+    <footer>
         <span class="rodape">
-        <span class="thx"><span>Obrigado por usar!</span>
+            <span class="thx">Obrigado por usar!</span>
+        </span>
     </footer>
+    
+    <script src="background.js" defer></script>
+</body>
 </html>
