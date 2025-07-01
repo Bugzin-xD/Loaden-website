@@ -14,7 +14,7 @@ var stars = [], // Array that contains the stars
 
     FPS = 85, // Frames per second
 
-    x = 90, // Number of stars
+    x = 110, // Number of stars
 
     mouse = {
 
@@ -42,7 +42,7 @@ for (var i = 0; i < x; i++) {
 
     vx: Math.floor(Math.random() * 50) - 25,
 
-    vy: Math.floor(Math.random() * 50) - 25
+    vy: Math.floor(Math.random() * 50) - 5
 
   });
 
