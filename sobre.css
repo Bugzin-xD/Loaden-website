@@ -19,6 +19,16 @@ body {
     color: aliceblue;
 }
 
+.V {
+   font-family: cursive;
+   color: aliceblue;
+}
+
+.B {
+   font-family: cursive;
+   color: blueviolet;
+}
+
 .topo
  {
     background-color: rgb(49, 49, 49);
