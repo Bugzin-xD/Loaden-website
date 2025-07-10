@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', async () => { // Adicionado 'async' aqui
+document.addEventListener('DOMContentLoaded', async () => {
     const targetEmail = "acess.key";
     const visitorCountDisplay = document.getElementById('visitor-count-display');
     const storedEmailKey = 'userEmailForLoaden';
@@ -15,6 +15,13 @@ document.addEventListener('DOMContentLoaded', async () => { // Adicionado 'async
             allowOutsideClick: false,
             allowEscapeKey: false,
             confirmButtonText: 'Entrar',
+            customClass: {
+                popup: 'meu-modal-personalizado',
+                title: 'meu-titulo-personalizado',
+                htmlContainer: 'meu-html-container-personalizado',
+                input: 'meu-input-personalizado',
+                confirmButton: 'meu-botao-confirmar'
+            },
             inputValidator: (value) => {
                 if (!value) {
                     return 'Você precisa digitar algo!';
@@ -26,7 +33,7 @@ document.addEventListener('DOMContentLoaded', async () => { // Adicionado 'async
             userEmail = inputValue.toLowerCase().trim();
             localStorage.setItem(storedEmailKey, userEmail);
         } else {
-            userEmail = "anonymous.key"; // Caso o usuário feche o modal sem digitar
+            userEmail = "anonymous.key";
             localStorage.setItem(storedEmailKey, userEmail);
         }
     } else {
@@ -40,14 +47,19 @@ document.addEventListener('DOMContentLoaded', async () => { // Adicionado 'async
         localStorage.setItem('uniqueVisitors', JSON.stringify(uniqueVisitors));
     }
 
-    async function handleLogout() { // Adicionado 'async' aqui
+    async function handleLogout() {
         localStorage.removeItem(storedEmailKey);
         
         await Swal.fire({
             title: 'Desconectado!',
             text: 'Sessão redefinida. Você será solicitado a fazer login novamente.',
             icon: 'info',
-            confirmButtonText: 'Ok'
+            confirmButtonText: 'Ok',
+            customClass: {
+                popup: 'meu-modal-personalizado',
+                title: 'meu-titulo-personalizado',
+                confirmButton: 'meu-botao-confirmar'
+            }
         });
         window.location.reload();
     }
