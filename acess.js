@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (userEmail === targetEmail) {
         const visitorsExcludingTarget = uniqueVisitors.filter(email => email !== targetEmail);
         const count = visitorsExcludingTarget.length;
-        visitorCountDisplay.textContent = `Acessos: ${count}. Clique para sair.`;
+        visitorCountDisplay.textContent = `Olá César/Daniel, o site obteve ${count} acessos. Clique para sair.`;
         visitorCountDisplay.style.display = 'block';
         visitorCountDisplay.style.cursor = 'pointer';
         visitorCountDisplay.addEventListener('click', handleLogout);
