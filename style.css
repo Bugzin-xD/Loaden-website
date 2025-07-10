@@ -15,6 +15,40 @@ body {
     z-index: -1;
 }
 
+.meu-modal-personalizado {
+    border-radius: 15px;
+    background-color: #2c2c2c;
+    color: #f0f0f0;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+}
+
+.meu-titulo-personalizado {
+    color: #00ffff;
+    font-family: 'Arial Black', sans-serif;
+    font-size: 1.8em;
+}
+
+.meu-html-container-personalizado {
+    color: #e0e0e0;
+}
+
+.meu-input-personalizado {
+    border: 1.5px solid #00ffff;
+    background-color: #3a3a3a;
+    color: #f0f0f0;
+    padding: 8px;
+    border-radius: 5px;
+}
+
+.meu-botao-confirmar {
+    background-color: #00bfff !important;
+    color: white !important;
+    border: none !important;
+    padding: 10px 20px !important;
+    border-radius: 8px !important;
+    font-weight: bold !important;
+}
+
 .baixo {
     background-color: rgb(49, 49, 49);
     color: rgb(49, 49, 49);
