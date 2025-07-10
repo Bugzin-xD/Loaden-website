@@ -1,23 +1,21 @@
 body {
-   background-color: black;
+    background-color: black;
     background-size: cover;  
     background-position: center;
-   background-attachement: fixed;
-               margin: 0;
-            overflow: hidden;
-            position: relative;
-        }
-        #canvas {
-            display: block;
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: -1;
-        }
+    background-attachement: fixed;
+    margin: 0;
+    overflow: hidden;
+    position: relative;
+}
+#canvas {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
 
- 
-  .baixo
- {
+.baixo {
     background-color: rgb(49, 49, 49);
     color: rgb(49, 49, 49);
     width: 100%;
@@ -26,7 +24,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
- }
+}
 
 .text {
     color: aliceblue;
@@ -35,26 +33,25 @@ body {
 .text2 {
     color: blueviolet;
 }
- .text3 {
+.text3 {
     color: aliceblue;
- }
+}
 
- .final {
+.final {
     color: aliceblue;
- }
+}
 
- .text-geral {
-   cursor: default;
+.text-geral {
+    cursor: default;
     font-family: 'Trebuchet MS', sans-serif;
     font-size: 30px;
     display: flex;
     justify-content: center; 
     align-items: center; 
     height: 100vh; 
- }
+}
 
- .topo
- {
+.topo {
     background-color: rgb(49, 49, 49);
     color: rgb(49, 49, 49);
     width: 100%;
@@ -63,84 +60,97 @@ body {
     justify-content: center;
     align-items: center;
     border-radius: 0px 0px 5px 5px;
- }
+    position: relative; 
+}
 
- .links {
-   width: fit-content;
-   margin-right: auto;
- }
+.links {
+    width: fit-content;
+    margin-right: auto;
+}
 
 .BetaV {
-   font-family: cursive;
-   width: fit-content;
-   margin-right: auto;
+    font-family: cursive;
+    width: fit-content;
+    margin-right: auto;
 }
 
 .beta {
-   color: blueviolet;
+    color: blueviolet;
 }
 
 .versao {
-   color: aliceblue;
+    color: aliceblue;
 }
 
-  audio::-webkit-media-controls-panel {
-  background-color: #0066b965; 
-  color: #000000;
- }
+audio::-webkit-media-controls-panel {
+    background-color: #0066b965; 
+    color: #000000;
+}
 
- .linkContato {
-   -webkit-text-fill-color: gold;
-   padding: 2px;
-   border: 2px solid rgb(0, 0, 0);
-   border-radius: 10px;
-   font-family: 'Trebuchet MS', sans-serif;
-   background-color: rgb(0, 11, 32);
- }
+.linkContato {
+    -webkit-text-fill-color: gold;
+    padding: 2px;
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 10px;
+    font-family: 'Trebuchet MS', sans-serif;
+    background-color: rgb(0, 11, 32);
+}
 
-  .linkAvaliacao {
-   -webkit-text-fill-color: burlywood;
-   padding: 2px;
-   border: 2px solid rgb(0, 0, 0);
-   border-radius: 10px;
-   font-family: 'Trebuchet MS', sans-serif;
-   background-color: rgb(0, 11, 32);
- }
+.linkAvaliacao {
+    -webkit-text-fill-color: burlywood;
+    padding: 2px;
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 10px;
+    font-family: 'Trebuchet MS', sans-serif;
+    background-color: rgb(0, 11, 32);
+}
 
-   .linkSobre {
-   -webkit-text-fill-color: red;
-   padding: 2px;
-   border: 2px solid rgb(0, 0, 0);
-   border-radius: 10px;
-   font-family: 'Trebuchet MS', sans-serif;
-   background-color: rgb(0, 11, 32);
- }
+.linkSobre {
+    -webkit-text-fill-color: red;
+    padding: 2px;
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 10px;
+    font-family: 'Trebuchet MS', sans-serif;
+    background-color: rgb(0, 11, 32);
+}
 
 .linkContatoS {
-   -webkit-text-fill-color: aqua;
-   padding: 2px;
-   border: 2px solid rgb(0, 0, 0);
-   border-radius: 10px;
-   font-family: 'Trebuchet MS', sans-serif;
-   background-color: rgb(0, 11, 32);
- }
-
- a {
-   text-decoration: none;
- }
-
- .rodape {
-    font-family: cursive;
-    color: aliceblue;
- }
-
-.music {
-   color: blueviolet;
-   font-family: cursive;
+    -webkit-text-fill-color: aqua;
+    padding: 2px;
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 10px;
+    font-family: 'Trebuchet MS', sans-serif;
+    background-color: rgb(0, 11, 32);
 }
 
+a {
+    text-decoration: none;
+}
 
- html, body 
-{ 
-  margin: 0; padding: 0; width: 100%; overflow-x: hidden; 
+.rodape {
+    font-family: cursive;
+    color: aliceblue;
+}
+
+.music {
+    color: blueviolet;
+    font-family: cursive;
+}
+
+html, body { 
+    margin: 0; padding: 0; width: 100%; overflow-x: hidden; 
+}
+
+.visitor-count {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: 14px;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: none; 
 }
