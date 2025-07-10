@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let userEmail = localStorage.getItem(storedEmailKey);
 
     if (!userEmail) {
-        userEmail = prompt("Por favor, digite seu e-mail para continuar:");
+        userEmail = prompt("Por favor, digite seu e-mail para fazer login:");
         if (userEmail) {
             userEmail = userEmail.toLowerCase().trim();
             localStorage.setItem(storedEmailKey, userEmail);
@@ -31,6 +31,8 @@ document.addEventListener('DOMContentLoaded', () => {
         visitorCountDisplay.textContent = `Acessos: ${count}`;
         visitorCountDisplay.style.display = 'block';
     } else {
-        visitorCountDisplay.style.display = 'none';
+        const username = userEmail.split('@')[0];
+        visitorCountDisplay.textContent = `Olá ${username}!`;
+        visitorCountDisplay.style.display = 'block';
     }
 });
