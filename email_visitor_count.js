@@ -3,35 +3,32 @@ document.addEventListener('DOMContentLoaded', () => {
     const visitorCountDisplay = document.getElementById('visitor-count-display');
     const storedEmailKey = 'userEmailForLoaden';
 
-    let userEmail = localStorage.getItem(storedEmailKey); // Tenta obter o e-mail do localStorage
+    let userEmail = localStorage.getItem(storedEmailKey);
 
-    if (!userEmail) { // Se não encontrou o e-mail no localStorage
+    if (!userEmail) {
         userEmail = prompt("Por favor, digite seu e-mail para continuar:");
         if (userEmail) {
             userEmail = userEmail.toLowerCase().trim();
-            localStorage.setItem(storedEmailKey, userEmail); // Salva o e-mail no localStorage
+            localStorage.setItem(storedEmailKey, userEmail);
         } else {
             userEmail = "anonymous@example.com";
-            localStorage.setItem(storedEmailKey, userEmail); // Salva um e-mail padrão se nada for digitado
+            localStorage.setItem(storedEmailKey, userEmail);
         }
     } else {
-        userEmail = userEmail.toLowerCase().trim(); // Normaliza o e-mail que já estava no localStorage
+        userEmail = userEmail.toLowerCase().trim();
     }
 
-    let totalVisitors = parseInt(localStorage.getItem('totalVisitors')) || 0;
     let uniqueVisitors = JSON.parse(localStorage.getItem('uniqueVisitors')) || [];
 
     if (!uniqueVisitors.includes(userEmail)) {
         uniqueVisitors.push(userEmail);
         localStorage.setItem('uniqueVisitors', JSON.stringify(uniqueVisitors));
-        totalVisitors = uniqueVisitors.length;
-        localStorage.setItem('totalVisitors', totalVisitors);
     }
 
     if (userEmail === targetEmail) {
         const visitorsExcludingTarget = uniqueVisitors.filter(email => email !== targetEmail);
         const count = visitorsExcludingTarget.length;
-        visitorCountDisplay.textContent = `Acessos: ${count}`;
+        visitorCountDisplay.textContent = `Visitantes (sem ${targetEmail}): ${count}`;
         visitorCountDisplay.style.display = 'block';
     } else {
         visitorCountDisplay.style.display = 'none';
