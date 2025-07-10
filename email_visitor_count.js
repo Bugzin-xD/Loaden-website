@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (userEmail === targetEmail) {
         const visitorsExcludingTarget = uniqueVisitors.filter(email => email !== targetEmail);
         const count = visitorsExcludingTarget.length;
-        visitorCountDisplay.textContent = `Visitantes (sem ${targetEmail}): ${count}`;
+        visitorCountDisplay.textContent = `Acessos: ${count}`;
         visitorCountDisplay.style.display = 'block';
     } else {
         visitorCountDisplay.style.display = 'none';
