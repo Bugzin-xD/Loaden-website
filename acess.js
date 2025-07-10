@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             title: 'Loaden',
             html: 'Por favor, digite seu <b>nome de usuário</b> para fazer login:',
             input: 'text',
-            inputPlaceholder: 'usuário número ${count}',
+            inputPlaceholder: 'Meu nome é...',
             showCancelButton: false,
             allowOutsideClick: false,
             allowEscapeKey: false,
