@@ -42,42 +42,4 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     let uniqueVisitors = JSON.parse(localStorage.getItem('uniqueVisitors')) || [];
 
-    if (!uniqueVisitors.includes(userEmail)) {
-        uniqueVisitors.push(userEmail);
-        localStorage.setItem('uniqueVisitors', JSON.stringify(uniqueVisitors));
-    }
-
-    async function handleLogout() {
-        localStorage.removeItem(storedEmailKey);
-        
-        await Swal.fire({
-            title: 'Desconectado!',
-            text: 'Sessão encerrada. Você será solicitado a fazer login novamente.',
-            icon: 'info',
-            confirmButtonText: 'Ok',
-            customClass: {
-                popup: 'meu-modal-personalizado',
-                title: 'meu-titulo-personalizado',
-                confirmButton: 'meu-botao-confirmar'
-            }
-        });
-        window.location.reload();
-    }
-
-    visitorCountDisplay.removeEventListener('click', handleLogout);
-
-    if (userEmail === targetEmail) {
-        const visitorsExcludingTarget = uniqueVisitors.filter(email => email !== targetEmail);
-        const count = visitorsExcludingTarget.length;
-        visitorCountDisplay.textContent = `Olá, o site obteve ${count} acessos. Clique para sair.`;
-        visitorCountDisplay.style.display = 'block';
-        visitorCountDisplay.style.cursor = 'pointer';
-        visitorCountDisplay.addEventListener('click', handleLogout);
-    } else {
-        const username = userEmail.split('@')[0];
-        visitorCountDisplay.textContent = `Olá ${username}! Clique para sair.`;
-        visitorCountDisplay.style.display = 'block';
-        visitorCountDisplay.style.cursor = 'pointer';
-        visitorCountDisplay.addEventListener('click', handleLogout);
-    }
-});
+    if (!
