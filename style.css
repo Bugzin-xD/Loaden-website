@@ -15,6 +15,15 @@ body {
     z-index: -1;
 }
 
+.swal2-container {
+    overflow-y: auto !important;
+    pointer-events: auto !important;
+}
+
+body.swal2-shown {
+    overflow-y: hidden !important;
+    padding-right: 0px !important;
+}
 
 .meu-modal-personalizado {
     font-family: Roboto, sans-serif;
