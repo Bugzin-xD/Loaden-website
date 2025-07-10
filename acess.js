@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             title: 'Loaden',
             html: 'Por favor, digite seu <b>nome de usuário</b> para fazer login:',
             input: 'text',
-            inputPlaceholder: 'Seu nome de usuário',
+            inputPlaceholder: 'Nome...',
             showCancelButton: false,
             allowOutsideClick: false,
             allowEscapeKey: false,
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             },
             inputValidator: (value) => {
                 if (!value) {
-                    return 'Você precisa digitar algo!';
+                    return 'Você precisa digitar um nome!';
                 }
             }
         });
@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         
         await Swal.fire({
             title: 'Desconectado!',
-            text: 'Sessão redefinida. Você será solicitado a fazer login novamente.',
+            text: 'Sessão encerrada. Você será solicitado a fazer login novamente.',
             icon: 'info',
             confirmButtonText: 'Ok',
             customClass: {
