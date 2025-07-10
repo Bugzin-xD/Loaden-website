@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
             userEmail = userEmail.toLowerCase().trim();
             localStorage.setItem(storedEmailKey, userEmail);
         } else {
-            userEmail = "anonymous@example.com";
+            userEmail = "anonymous";
             localStorage.setItem(storedEmailKey, userEmail);
         }
     } else {
