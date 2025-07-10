@@ -133,9 +133,6 @@ body.swal2-shown.swal2-height-auto {
     color: aliceblue;
 }
 
-audio::-webkit-media-controls-panel {
-    background-color: rgb(5, 12, 133); 
-}
 
 .linkContato {
     -webkit-text-fill-color: gold;
@@ -180,11 +177,6 @@ a {
 .rodape {
     font-family: cursive;
     color: aliceblue;
-}
-
-.music {
-    color: blueviolet;
-    font-family: cursive;
 }
 
 html, body { 
