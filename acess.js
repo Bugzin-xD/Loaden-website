@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let userEmail = localStorage.getItem(storedEmailKey);
 
     if (!userEmail) {
-        userEmail = prompt("Por favor, digite seu e-mail para fazer login:");
+        userEmail = prompt("Por favor, digite seu nome de usuário para fazer login:");
         if (userEmail) {
             userEmail = userEmail.toLowerCase().trim();
             localStorage.setItem(storedEmailKey, userEmail);
@@ -25,25 +25,26 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('uniqueVisitors', JSON.stringify(uniqueVisitors));
     }
 
+    function handleLogout() {
+        localStorage.removeItem(storedEmailKey);
+        alert("Você foi desconectado!");
+        window.location.reload();
+    }
+
     visitorCountDisplay.removeEventListener('click', handleLogout);
 
     if (userEmail === targetEmail) {
         const visitorsExcludingTarget = uniqueVisitors.filter(email => email !== targetEmail);
         const count = visitorsExcludingTarget.length;
-        visitorCountDisplay.textContent = `Acessos: ${count}`;
+        visitorCountDisplay.textContent = `Acessos: ${count}. Clique para sair.`;
         visitorCountDisplay.style.display = 'block';
-        visitorCountDisplay.style.cursor = 'default';
+        visitorCountDisplay.style.cursor = 'pointer';
+        visitorCountDisplay.addEventListener('click', handleLogout);
     } else {
         const username = userEmail.split('@')[0];
         visitorCountDisplay.textContent = `Olá ${username}! Clique para sair.`;
         visitorCountDisplay.style.display = 'block';
         visitorCountDisplay.style.cursor = 'pointer';
         visitorCountDisplay.addEventListener('click', handleLogout);
-    }
-
-    function handleLogout() {
-        localStorage.removeItem(storedEmailKey);
-        alert("Você foi desconectado.");
-        window.location.reload();
     }
 });
