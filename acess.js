@@ -1,5 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
-    document.title = "Loaden";
+document.addEventListener('DOMContentLoaded', async () => { // Adicionado 'async' aqui
     const targetEmail = "acess.key";
     const visitorCountDisplay = document.getElementById('visitor-count-display');
     const storedEmailKey = 'userEmailForLoaden';
@@ -7,12 +6,27 @@ document.addEventListener('DOMContentLoaded', () => {
     let userEmail = localStorage.getItem(storedEmailKey);
 
     if (!userEmail) {
-        userEmail = prompt("Por favor, digite seu nome de usuário para fazer login:");
-        if (userEmail) {
-            userEmail = userEmail.toLowerCase().trim();
+        const { value: inputValue } = await Swal.fire({
+            title: 'Loaden',
+            html: 'Por favor, digite seu <b>nome de usuário</b> para fazer login:',
+            input: 'text',
+            inputPlaceholder: 'Seu nome de usuário',
+            showCancelButton: false,
+            allowOutsideClick: false,
+            allowEscapeKey: false,
+            confirmButtonText: 'Entrar',
+            inputValidator: (value) => {
+                if (!value) {
+                    return 'Você precisa digitar algo!';
+                }
+            }
+        });
+
+        if (inputValue) {
+            userEmail = inputValue.toLowerCase().trim();
             localStorage.setItem(storedEmailKey, userEmail);
         } else {
-            userEmail = "anonymous.key";
+            userEmail = "anonymous.key"; // Caso o usuário feche o modal sem digitar
             localStorage.setItem(storedEmailKey, userEmail);
         }
     } else {
@@ -26,9 +40,15 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('uniqueVisitors', JSON.stringify(uniqueVisitors));
     }
 
-    function handleLogout() {
+    async function handleLogout() { // Adicionado 'async' aqui
         localStorage.removeItem(storedEmailKey);
-        alert("Você foi desconectado!");
+        
+        await Swal.fire({
+            title: 'Desconectado!',
+            text: 'Sessão redefinida. Você será solicitado a fazer login novamente.',
+            icon: 'info',
+            confirmButtonText: 'Ok'
+        });
         window.location.reload();
     }
 
