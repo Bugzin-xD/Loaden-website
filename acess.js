@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const targetEmail = "Bugzin";
+    const targetEmail = "acess.key";
     const visitorCountDisplay = document.getElementById('visitor-count-display');
     const storedEmailKey = 'userEmailForLoaden';
 
@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
             userEmail = userEmail.toLowerCase().trim();
             localStorage.setItem(storedEmailKey, userEmail);
         } else {
-            userEmail = "anonymous";
+            userEmail = "anonymous.key";
             localStorage.setItem(storedEmailKey, userEmail);
         }
     } else {
