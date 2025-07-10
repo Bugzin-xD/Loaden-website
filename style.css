@@ -134,8 +134,8 @@ body.swal2-shown.swal2-height-auto {
 }
 
 audio::-webkit-media-controls-panel {
-    background-color: #0066b965; 
-    color: #000000;
+    background-color: rgb (5, 12, 133); 
+    color: #0F0F0F;
 }
 
 .linkContato {
