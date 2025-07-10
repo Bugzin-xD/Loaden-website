@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+    document.title = "Loaden";
     const targetEmail = "acess.key";
     const visitorCountDisplay = document.getElementById('visitor-count-display');
     const storedEmailKey = 'userEmailForLoaden';
