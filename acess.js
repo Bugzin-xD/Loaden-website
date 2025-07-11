@@ -62,5 +62,5 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         if (inputValue) {
             userEmail = inputValue.toLowerCase().trim();
-            localStorage.setItem(storedEmail)
-        }
+     localStorage.setItem(storedEmail)
+        }
