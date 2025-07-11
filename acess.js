@@ -1,21 +1,29 @@
+// acess.js
 document.addEventListener('DOMContentLoaded', async () => {
     const visitorCountDisplay = document.getElementById('visitor-count-display');
     const storedEmailKey = 'userEmailForLoaden';
 
-    // Use a URL do seu Aplicativo da Web implantado
-    const APPS_SCRIPT_WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbwADcA3PkSH9P_3qhQlM0Ff9MsVw7xWSf2ql_8ePcR_iTI_NAlxrBFKE31S8uqHYi79ww/exec';
+    // *** AGORA VOCÊ CHAMA SUA PRÓPRIA VERCEL FUNCTION (O PROXY) ***
+    const PROXY_URL = '/api/google-script'; 
 
     let userEmail = localStorage.getItem(storedEmailKey);
 
     async function logAccess(userKey) {
         try {
-            // Requisição GET para logar o acesso (Apps Script pode lidar com isso via doGet)
-            const response = await fetch(`${APPS_SCRIPT_WEB_APP_URL}?action=log_access&userKey=${encodeURIComponent(userKey)}`);
+            // Requisição POST para o proxy
+            const response = await fetch(PROXY_URL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ action: 'log_access', userKey: userKey })
+            });
+
             if (!response.ok) {
-                const errorText = await response.text();
-                throw new Error(`Erro ao registrar acesso: ${response.status} - ${errorText}`);
+                const errorData = await response.json();
+                throw new Error(`Erro ao registrar acesso via proxy: ${response.status} - ${errorData.error}`);
             }
-            console.log('Acesso registrado com sucesso.');
+            console.log('Acesso registrado com sucesso via proxy.');
         } catch (error) {
             console.error('Erro ao registrar acesso:', error);
         }
@@ -23,10 +31,11 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     async function getUniqueAccessCount() {
         try {
-            const response = await fetch(`${APPS_SCRIPT_WEB_APP_URL}?action=get_count`);
+            // Requisição GET para o proxy
+            const response = await fetch(`${PROXY_URL}?action=get_count`);
             if (!response.ok) {
-                const errorText = await response.text();
-                throw new Error(`Erro ao obter contagem de acessos: ${response.status} - ${errorText}`);
+                const errorData = await response.json();
+                throw new Error(`Erro ao obter contagem de acessos via proxy: ${response.status} - ${errorData.error}`);
             }
             const data = await response.json();
             return data.count;
@@ -86,7 +95,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
     visitorCountDisplay.addEventListener('click', handleLogout);
 
-    await logAccess(userEmail);
+    await logAccess(userEmail); 
 
     if (userEmail === adminUserKey) {
         const uniqueAccessCount = await getUniqueAccessCount();
