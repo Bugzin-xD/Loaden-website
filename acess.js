@@ -61,5 +61,49 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
 
         if (inputValue) {
-            userEmail = inputValue.
-        };
+            userEmail = inputValue.toLowerCase().trim(); // FIX: Added .toLowerCase().trim()
+            localStorage.setItem(storedEmailKey, userEmail);
+        } else {
+            userEmail = "anônimo";
+            localStorage.setItem(storedEmailKey, userEmail);
+        }
+    } else {
+        userEmail = userEmail.toLowerCase().trim();
+    }
+
+    const adminUserKey = "acess.key";
+    visitorCountDisplay.style.display = 'block';
+    visitorCountDisplay.style.cursor = 'pointer';
+    visitorCountDisplay.removeEventListener('click', handleLogout);
+
+    if (userEmail === adminUserKey) {
+        visitorCountDisplay.textContent = `Olá, ${userEmail}! Contagem carregando...`;
+    } else {
+        const username = userEmail.split('@')[0];
+        visitorCountDisplay.textContent = `Olá ${username}! Clique para sair.`;
+    }
+    visitorCountDisplay.addEventListener('click', handleLogout);
+
+    await logAccess(userEmail);
+
+    if (userEmail === adminUserKey) {
+        const uniqueAccessCount = await getUniqueAccessCount();
+        visitorCountDisplay.textContent = `Olá, o site obteve ${uniqueAccessCount} acessos únicos. Clique para sair.`;
+    }
+
+    async function handleLogout() {
+        localStorage.removeItem(storedEmailKey);
+        await Swal.fire({
+            title: 'Desconectado!',
+            text: 'Sessão encerrada. Você será solicitado a digitar seu nome novamente.',
+            icon: 'info',
+            confirmButtonText: 'Ok',
+            customClass: {
+                popup: 'meu-modal-personalizado',
+                title: 'meu-titulo-personalizado',
+                confirmButton: 'meu-botao-confirmar'
+            }
+        });
+        window.location.reload();
+    }
+});
