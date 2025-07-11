@@ -3,19 +3,26 @@ document.addEventListener('DOMContentLoaded', async () => {
     const storedEmailKey = 'userEmailForLoaden';
 
     const APPS_SCRIPT_WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbwADcA3PkSH9P_3qhQlM0Ff9MsVw7xWSf2ql_8ePcR_iTI_NAlxrBFKE31S8uqHYi79ww/exec';
+    const VERCEL_ORIGIN = 'https://loaden-website-eta.vercel.app'; // Defina sua origem Vercel
 
     let userEmail = localStorage.getItem(storedEmailKey);
 
     async function logAccess(userKey) {
         try {
-            await fetch(APPS_SCRIPT_WEB_APP_URL, {
+            const response = await fetch(APPS_SCRIPT_WEB_APP_URL, {
                 method: 'POST',
-                mode: 'no-cors',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({ userKey: userKey }),
             });
+
+            // Verifique se a requisição foi bem-sucedida pelo status HTTP
+            if (!response.ok) {
+                const errorBody = await response.text(); // Tenta ler o corpo da resposta de erro
+                console.error(`Erro HTTP ao registrar acesso: ${response.status} - ${errorBody}`);
+                throw new Error(`Falha ao registrar acesso: ${response.status} ${response.statusText}`);
+            }
             console.log('Acesso registrado com sucesso.');
         } catch (error) {
             console.error('Erro ao registrar acesso:', error);
@@ -26,7 +33,10 @@ document.addEventListener('DOMContentLoaded', async () => {
         try {
             const response = await fetch(APPS_SCRIPT_WEB_APP_URL + '?action=get_count');
             if (!response.ok) {
-                throw new Error(`Erro ao obter contagem de acessos: ${response.status}`);
+                // Tenta ler o corpo da resposta de erro para mais detalhes
+                const errorBody = await response.text();
+                console.error(`Erro HTTP ao obter contagem: ${response.status} - ${errorBody}`);
+                throw new Error(`Erro ao obter contagem de acessos: ${response.status} ${response.statusText}`);
             }
             const data = await response.json();
             return data.count;
@@ -61,7 +71,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
 
         if (inputValue) {
-            userEmail = inputValue.toLowerCase().trim(); // FIX: Added .toLowerCase().trim()
+            userEmail = inputValue.toLowerCase().trim();
             localStorage.setItem(storedEmailKey, userEmail);
         } else {
             userEmail = "anônimo";
