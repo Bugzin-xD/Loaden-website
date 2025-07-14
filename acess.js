@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             title: 'Loaden',
             html: 'Por favor, digite seu <b>nome de usuário</b> para fazer login:',
             input: 'text',
-            inputPlaceholder: 'Nome...',
+            inputPlaceholder: 'Meu nome é...',
             showCancelButton: false,
             allowOutsideClick: false,
             allowEscapeKey: false,
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             userEmail = inputValue.toLowerCase().trim();
             localStorage.setItem(storedEmailKey, userEmail);
         } else {
-            userEmail = "anonymous.key";
+            userEmail = "anonymous";
             localStorage.setItem(storedEmailKey, userEmail);
         }
     } else {
