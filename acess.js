@@ -8,9 +8,12 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (!userEmail) {
         const { value: inputValue } = await Swal.fire({
             title: 'Loaden',
-            html: 'Por favor, digite seu <b>nome de usuário</b> para fazer login:',
+            html: 'Por favor, digite seu <b>email</b> para fazer login:',
             input: 'text',
-            inputPlaceholder: 'Meu nome é...',
+            inputPlaceholder: 'exemplo@gmail.com',
+            html: 'Por favor, digite seu <b>senha</b> para fazer login:',
+            input: 'text',
+            inputPlaceholder: '1234...',
             showCancelButton: false,
             allowOutsideClick: false,
             allowEscapeKey: false,
