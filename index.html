@@ -10,44 +10,74 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
     
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="maintenance.css">
     
     <link rel="icon" href="/logo.png" type="image/png">
 </head>
 <body>
-    <canvas id="canvas"></canvas>
+    <div id="main-content">
+        <canvas id="canvas"></canvas>
 
-    <header class="topo">
-        <div class="links">
-            <a class="linkContato" href="https://forms.gle/NDQTi6dd1mvA4VXLA" target="_blank">Contato</a>
-            <a class="linkContatoS" href="https://forms.gle/r2vqw9EkpuNuGkyA7" target="_blank">Contato (Sites)</a>
-            <a class="linkAvaliacao" href="https://forms.gle/yuiWscAbi6yhvDKQ6" target="_blank">Avaliação</a>
-            <a class="linkSobre" href="about.html" target="_self">Sobre (em criação)</a>
-        </div>
-        <div id="visitor-count-display" class="visitor-count"></div>
-    </header>
-    
-    <span class="BetaV">
-        <span class="versao">Versão</span>
-        <span class="beta"> BETA</span>
-    </span>
-    
-    <span class="text-geral">
-        <h1>
-            <span class="text">Dando um </span>
-            <span class="text2">load</span>
-            <span class="text3"> melhor no seu </span>
-            <p class="final">computador!</p>
-        </h1>
-    </span>
-    <footer class="baixo">
-        <span class="rodape">
-            <span class="thx">Obrigado por usar!</span>
+        <header class="topo">
+            <div class="links">
+                <a class="linkContato" href="https://forms.gle/NDQTi6dd1mvA4VXLA" target="_blank">Contato</a>
+                <a class="linkContatoS" href="https://forms.gle/r2vqw9EkpuNuGkyA7" target="_blank">Contato (Sites)</a>
+                <a class="linkAvaliacao" href="https://forms.gle/yuiWscAbi6yhvDKQ6" target="_blank">Avaliação</a>
+                <a class="linkSobre" href="about.html" target="_self">Sobre (em criação)</a>
+            </div>
+            <div id="visitor-count-display" class="visitor-count"></div>
+        </header>
+        
+        <span class="BetaV">
+            <span class="versao">Versão</span>
+            <span class="beta"> BETA</span>
         </span>
-    </footer>
+        
+        <span class="text-geral">
+            <h1>
+                <span class="text">Dando um </span>
+                <span class="text2">load</span>
+                <span class="text3"> melhor no seu </span>
+                <p class="final">computador!</p>
+            </h1>
+        </span>
+        <footer class="baixo">
+            <span class="rodape">
+                <span class="thx">Obrigado por usar!</span>
+            </span>
+        </footer>
+    </div>
+
+    <div id="overlay">
+        <canvas id="overlay-canvas"></canvas>
+        <header class="top">
+            <span class="bug">Links indisponíveis no momento</span>
+        </header>
+
+        <span class="text">
+            <h1>Site em manutenção no momento, favor, volte mais tarde</h1>
+        </span>
+        
+        <footer class="rodape">
+            <span class="baxo">Obrigado por usar!</span>
+        </footer>
+    </div>
     
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    
     <script src="acess.js" defer></script>
     <script src="background.js" defer></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('main-content').style.display = 'none';
+        });
+
+        window.onload = function() {
+            setTimeout(function() {
+                document.getElementById('overlay').style.display = 'none';
+                document.getElementById('main-content').style.display = 'block';
+            }, 1000); // 1 segundo de atraso, ajuste conforme necessário
+        };
+    </script>
 </body>
 </html>
