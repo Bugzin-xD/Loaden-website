@@ -10,9 +10,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
     
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="error.css">
-    
-    <link rel="icon" href="/logo.png" type="image/png">
+    <link rel="stylesheet" href="error.css"> <link rel="icon" href="/logo.png" type="image/png">
 </head>
 <body>
     <div id="main-content">
@@ -66,18 +64,6 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="acess.js" defer></script>
     
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            document.getElementById('main-content').style.display = 'none';
-        });
-
-        window.onload = function() {
-            setTimeout(function() {
-                document.getElementById('overlay').style.display = 'none';
-                document.getElementById('main-content').style.display = 'block';
-            }, 1000); // 1 segundo de atraso, ajuste conforme necessário
-        };
-    </script>
-    <script src="background.js" defer></script>
+    <script src="background.js" defer></script> 
 </body>
 </html>
