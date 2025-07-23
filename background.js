@@ -43,8 +43,8 @@ function initializeStarryBackground(canvasId) {
             x: Math.random() * canvas.width,
             y: Math.random() * canvas.height,
             radius: Math.random() * 1 + 1,
-            vx: Math.floor(Math.random() * 50) / FPS - 25 / FPS, // Ajuste para velocidade mais consistente
-            vy: Math.floor(Math.random() * 50) / FPS - 5 / FPS // Ajuste para velocidade mais consistente
+            vx: Math.floor(Math.random() * 50) / FPS - 25 / FPS, 
+            vy: Math.floor(Math.random() * 50) / FPS - 5 / FPS 
         });
     }
 
@@ -56,7 +56,7 @@ function initializeStarryBackground(canvasId) {
 
         ctx.globalCompositeOperation = "lighter";
 
-        for (var i = 0, len = stars.length; i < len; i++) { // Use len para eficiência
+        for (var i = 0, len = stars.length; i < len; i++) {
             var s = stars[i];
 
             ctx.fillStyle = "#fff";
@@ -68,15 +68,12 @@ function initializeStarryBackground(canvasId) {
         }
 
         ctx.beginPath();
-        for (var i = 0, len = stars.length; i < len; i++) { // Use len para eficiência
+        for (var i = 0, len = stars.length; i < len; i++) {
             var starI = stars[i];
             ctx.moveTo(starI.x, starI.y);
-            // Sua condição original era < max_distance*0, o que sempre é falso.
-            // Se você quiser que as linhas se conectem ao mouse, mude 0 para 1.
-            // Por enquanto, mantenho como estava para não alterar seu comportamento pretendido.
             if (distance(mouse, starI) < max_distance * 0) ctx.lineTo(mouse.x, mouse.y);
             
-            for (var j = 0, len2 = stars.length; j < len2; j++) { // Use len2 para eficiência
+            for (var j = 0, len2 = stars.length; j < len2; j++) {
                 var starII = stars[j];
                 if (distance(starI, starII) < max_distance) {
                     ctx.lineTo(starII.x, starII.y);
@@ -100,10 +97,10 @@ function initializeStarryBackground(canvasId) {
 
     // Atualiza as localizações das estrelas
     function update() {
-        for (var i = 0, len = stars.length; i < len; i++) { // Use len para eficiência
+        for (var i = 0, len = stars.length; i < len; i++) {
             var s = stars[i];
 
-            s.x += s.vx; // Vx e Vy já ajustados pela FPS na inicialização
+            s.x += s.vx; 
             s.y += s.vy;
 
             if (s.x < 0 || s.x > canvas.width) s.vx = -s.vx;
@@ -113,10 +110,9 @@ function initializeStarryBackground(canvasId) {
 
     // Adiciona o listener de movimento do mouse para este canvas específico
     canvas.addEventListener('mousemove', function(e) {
-        // Obtenha a posição relativa do mouse em relação ao canvas
         var rect = canvas.getBoundingClientRect();
         mouse.x = e.clientX - rect.left;
-        mouse.y = e.clientY - rect.top; // Removi o -80, pois getBoundingClientRect já dá a posição correta. Se precisar de um offset, adicione-o aqui.
+        mouse.y = e.clientY - rect.top;
     });
 
     // Loop principal de atualização e desenho
@@ -129,22 +125,7 @@ function initializeStarryBackground(canvasId) {
     tick(); // Inicia o loop da animação para este canvas
 }
 
-// Chame a função para inicializar o background em cada canvas
-
-// 1. Inicializa o canvas principal (quando o DOM estiver pronto)
+// Chame a função apenas para o canvas da overlay
 document.addEventListener('DOMContentLoaded', function() {
-    initializeStarryBackground('canvas'); 
+    initializeStarryBackground('overlay-canvas'); 
 });
-
-// 2. Inicializa o canvas da overlay (garanta que o elemento da overlay existe antes de chamar)
-// Usamos window.onload porque a overlay é adicionada via JS ou precisa ter certeza que todo o HTML foi renderizado
-window.onload = function() {
-    // Adiciona um pequeno atraso para garantir que a overlay e seu canvas estejam completamente prontos
-    setTimeout(function() {
-        initializeStarryBackground('overlay-canvas');
-        
-        // As linhas abaixo são para controlar a exibição da overlay, movidas do HTML para cá
-        document.getElementById('overlay').style.display = 'none';
-        document.getElementById('main-content').style.display = 'block'; // ou 'flex', 'grid', etc.
-    }, 1000); // 1 segundo de atraso, ajuste conforme necessário
-};
