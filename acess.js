@@ -140,7 +140,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         const count = visitorsExcludingTarget.length;
 
-        visitorCountDisplay.textContent = `Acessos: ${count}. Clique para sair.`;
+        visitorCountDisplay.textContent = `Ainda não funcional, contagem (${count})`;
 
         visitorCountDisplay.style.display = 'block';
 
