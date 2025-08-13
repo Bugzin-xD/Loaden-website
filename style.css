@@ -20,7 +20,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: transparent;
+  background-color: gray;
   border-radius: 20px;
   border: 3px transparent;
 }
@@ -214,4 +214,5 @@ html, body {
     border-radius: 5px;
     display: none; 
 }
+
 
